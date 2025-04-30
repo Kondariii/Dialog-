@@ -1,4 +1,4 @@
-ipackage com.example.dialog;
+package com.example.dialog;
 
 import android.os.Bundle;
 import android.widget.*;
