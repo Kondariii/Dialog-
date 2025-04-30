@@ -1,4 +1,4 @@
-package com.example.dialog;
+ipackage com.example.dialog;
 
 import android.os.Bundle;
 import android.widget.*;
@@ -56,6 +56,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putint("licznik", licznik);
+        outState.putInt("licznik", licznik);
     }
 }
