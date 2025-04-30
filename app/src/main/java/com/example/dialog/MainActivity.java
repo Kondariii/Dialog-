@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int deletionCount = 0;
+    private int licznik = 0;
     private TextView counterTextView;
     private Button resetButton;
     private Button deleteButton;
@@ -22,12 +22,12 @@ public class MainActivity extends AppCompatActivity {
         deleteButton = findViewById(R.id.btn2);
 
         if (savedInstanceState != null) {
-            deletionCount = savedInstanceState.getInt("deletionCount");
+            licznik  = savedInstanceState.getInt("licznik");
             updateCounterText();
         }
 
         resetButton.setOnClickListener(v -> {
-            deletionCount = 0;
+            licznik = 0;
             updateCounterText();
             Toast.makeText(this, "Licznik został zresetowany", Toast.LENGTH_SHORT).show();
         });
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 .setTitle("Potwierdzenie")
                 .setMessage("Czy na pewno chcesz usunąć dane?")
                 .setPositiveButton("Tak", (dialog, which) -> {
-                    deletionCount++;
+                    licznik++;
                     updateCounterText();
                     Toast.makeText(this, "Dane zostały usunięte", Toast.LENGTH_SHORT).show();
                 })
@@ -49,13 +49,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateCounterText() {
-        String message = "Dane usunięto: " + deletionCount + (deletionCount == 1 ? " raz" : " razy");
+        String message = "Dane usunięto: " + licznik + (licznik == 1 ? " raz" : " razy");
         counterTextView.setText(message);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("deletionCount", deletionCount);
+        ("licznik", licznik);
     }
 }
